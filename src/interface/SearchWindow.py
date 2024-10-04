@@ -12,7 +12,7 @@ from utils.SGDBAPI import (
     get_games_search,
 )
 from utils.WebImage import WebImage
-from .Components import GameFrame, ImageFrame, LoadingDialog, ScrollFrame
+from .Components import GameFrame, ImageFrame, ScrollFrame
 
 
 class SearchDialog(tk.Toplevel):

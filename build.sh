@@ -1,1 +1,1 @@
-pyinstaller  LutrisSGDBFetchet.spec
+pyinstaller LutrisSGDBFetchet.spec

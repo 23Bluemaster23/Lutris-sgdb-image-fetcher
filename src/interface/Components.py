@@ -1,7 +1,6 @@
 import tkinter.ttk as ttk
 import tkinter as tk
 from tkinter.font import Font
-from steamgrid.steamgrid import Game
 
 from interface.OptionsWindow import OptionsWindow
 
@@ -11,43 +10,6 @@ class ScrollFrame(ttk.Frame):
         self,
         master: tk.Misc | None = None,
         style: str = "",
-        # cnf: dict[str, Any] | None = None,
-        # *,
-        # background: str = ...,
-        # bd: str | float = 0,
-        # bg: str = ...,
-        # border: str | float = 0,
-        # borderwidth: str | float = 0,
-        # class_: str = "Frame",
-        # colormap: tk.Misc | Literal["new"] | Literal[""] = "",
-        # container: bool = False,
-        # cursor: (
-        #     str
-        #     | tuple[str]
-        #     | tuple[str, str]
-        #     | tuple[str, str, str]
-        #     | tuple[str, str, str, str]
-        # ) = "",
-        # height: str | float = 0,
-        # highlightbackground: str = ...,
-        # highlightcolor: str = ...,
-        # highlightthickness: str | float = 0,
-        # name: str = ...,
-        # padx: str | float = 0,
-        # pady: str | float = 0,
-        # relief: (
-        #     Literal["raised"]
-        #     | Literal["sunken"]
-        #     | Literal["flat"]
-        #     | Literal["ridge"]
-        #     | Literal["solid"]
-        #     | Literal["groove"]
-        # ) = "flat",
-        # takefocus: (
-        #     bool | Callable[[str], bool | None] | Literal[0] | Literal[1] | Literal[""]
-        # ) = 0,
-        # visual: str | tuple[str, int] = "",
-        # width: str | float = 0
     ) -> None:
         self.master = master
         self._parent_frame = ttk.Frame(master=master)
@@ -90,7 +52,7 @@ class GameFrame(ttk.Frame):
     def __init__(
         self,
         master: tk.Misc | None = None,
-        game: dict | Game = None,
+        game: dict = None,
     ) -> None:
         super().__init__(master, cursor="hand2", style="Game.TFrame")
         self.configure(borderwidth=1, relief="solid")
