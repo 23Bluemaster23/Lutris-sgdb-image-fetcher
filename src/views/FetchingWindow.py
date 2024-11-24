@@ -14,6 +14,10 @@ class FetchingWindow(Gtk.Builder):
         self.images = {}
         self.game_data = game_data
         self.add_from_file('templates/FetchingWindow.glade')
+        handlers = {
+            'on_FetchingWindow_destroy':self.game_data['parent'].update_images_action,
+        }
+        self.connect_signals(handlers)
         self.window = self.get_object('FetchingWindow')
         self.game_flow = self.get_object('game_flow')
         

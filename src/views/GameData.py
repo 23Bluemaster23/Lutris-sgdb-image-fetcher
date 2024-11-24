@@ -27,9 +27,7 @@ class GameData(Gtk.Builder):
         self.banner_image:Gtk.Image = self.get_object('banner_image')
         self.coverart_image:Gtk.Image = self.get_object('coverart_image')
         self.icon_image:Gtk.Image = self.get_object('icon_image')
-        self.banner_image.set_from_pixbuf(FileSystemController.get_image(FileType.BANNER,self.game_data['slug']))
-        self.coverart_image.set_from_pixbuf(FileSystemController.get_image(FileType.COVERTART,self.game_data['slug']))
-        self.icon_image.set_from_pixbuf(FileSystemController.get_image(FileType.ICON,self.game_data['slug']))
+        self.update_images()
         self.window.set_modal(True)
         self.window.show_all()
 
@@ -47,9 +45,16 @@ class GameData(Gtk.Builder):
     def fetch_images_action(self,widget):
         if hasattr(widget, 'selected_id'):
             self.window.set_modal(False)
-            window = FetchingWindow({'id':widget.selected_id,'slug':self.game_data['slug'],'type':self.type})
-    
+            window = FetchingWindow({'id':widget.selected_id,'slug':self.game_data['slug'],'type':self.type,'parent':self})
+    def update_images(self):
+        self.banner_image.set_from_pixbuf(FileSystemController.get_image(FileType.BANNER,self.game_data['slug']))
+        self.coverart_image.set_from_pixbuf(FileSystemController.get_image(FileType.COVERTART,self.game_data['slug']))
+        self.icon_image.set_from_pixbuf(FileSystemController.get_image(FileType.ICON,self.game_data['slug']))
     def fetch_single_image_action(self,widget):
         if hasattr(widget, 'selected_id'):
             self.window.set_modal(False)
-            window = FetchingSingleWindow({'id':widget.selected_id,'slug':self.game_data['slug'],'type':self.type})
+            window = FetchingSingleWindow({'id':widget.selected_id,'slug':self.game_data['slug'],'type':self.type,'parent':self})
+    
+    def update_images_action(self,widget):
+        self.update_images()
+        self.window.show_all()

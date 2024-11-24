@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=LutrisSGDB
+Icon=Lutris
+Exec=AppRun
+Categories=Game
