@@ -186,5 +186,6 @@ pip-selfcheck.json
 settings.json
 src/mocks/*
 config.ini
+config.ini.d
 # End of https://www.toptal.com/developers/gitignore/api/python,venv
 *.glade~
